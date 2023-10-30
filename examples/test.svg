@@ -1,15 +1,18 @@
 <?xml version="1.0" standalone="no"?>
 <svg width="300" height="200" version="1.1" xmlns="http://www.w3.org/2000/svg">
-<!-- <polygon points = '50 200 250 200 150 0' stroke = 'black' fill = 'solid'/> -->
-<rect x = '50' y = '0' width = '200' height = '200' stroke = 'black' fill = 'solid'/>
-<style>
-    .test {
-        font: 7em sans-serif;
-        fill: green;
-    }
-</style>
-<!-- <circle cx = '150' cy = '100' r = '99' stroke = 'black' fill = 'solid' /> -->
-<text x = '50' y = '150' class = 'test'>JSF</text>
+    <style>
+        .shape {
+            fill: #000000;
+        }
+        .test {
+            font: 4em sans-serif;
+            fill: #ffffff;
+            text-anchor: middle;
+            dominant-baseline: middle;
+        }
+    </style>
+    <circle cx = '150' cy = '100' r = '99' class = 'shape' />
+    <text x = '50%' y = '50%' class = 'test'>MMM</text>
 </svg>
 
   <!-- <rect x="10" y="10" width="30" height="30" stroke="black" fill="solid" stroke-width="5"/>
