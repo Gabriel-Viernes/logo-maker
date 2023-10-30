@@ -1,4 +1,6 @@
-const inquirer = require("inquirer");
+const inquirer = require('inquirer');
+const shape = require('./lib/shapes.js')
+const fs = require('fs')
 function getInfo() {
     let answers = inquirer.prompt([
         {
@@ -8,8 +10,13 @@ function getInfo() {
         },
         {
             type: 'input',
-            message: 'Please enter your desired logo color in hexadecimal',
-            name:'color'
+            message: 'Please enter your desired logo text color in hexadecimal',
+            name:'textColor'
+        },
+        {
+            type: 'input',
+            message: 'Please enter your desired logo background color in hexadecimal',
+            name:'backColor'
         },
         {
             type: 'list',
@@ -21,5 +28,36 @@ function getInfo() {
                 'circle'
             ]
         }
-    ]).then()
+    ]).then((answers) => {
+        switch (answers.shape) {
+            case 'square':
+                let tempSquare = new shape.Square(answers.backColor, answers.textColor, answers.logoChar.toUpperCase())
+                fs.writeFileSync('./examples/logo.svg', tempSquare.render(), (err) => {
+                    if(err) {
+                        console.debug(err)
+                    }
+                })
+                console.log('Generated logo.svg')
+                break;
+            case 'triangle':
+                let tempTri = new shape.Triangle(answers.backColor, answers.textColor,answers.logoChar.toUpperCase())
+                fs.writeFile('./examples/logo.svg', tempTri.render(), (err) => {
+                    if(err) {
+                        console.debug(err)
+                    }
+                })
+                console.log('Generated logo.svg')
+                break;
+            case 'circle':
+                let tempCir = new shape.Circle(answers.backColor, answers.textColor, answers.logoChar.toUpperCase())
+                fs.writeFile('./examples/logo.svg', tempCir.render(), (err) => {
+                    if(err) {
+                        console.debug(err)
+                    }
+                })
+                console.log('Generated logo.svg')
+                break;
+        }
+    })
 }
+getInfo()
