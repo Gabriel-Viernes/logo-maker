@@ -10,12 +10,12 @@ function getInfo() {
         },
         {
             type: 'input',
-            message: 'Please enter your desired logo text color in hexadecimal',
+            message: 'Please enter your desired logo text color in hexadecimal without "#"',
             name:'textColor'
         },
         {
             type: 'input',
-            message: 'Please enter your desired logo background color in hexadecimal',
+            message: 'Please enter your desired logo background color in hexadecimal without "#"',
             name:'backColor'
         },
         {
@@ -29,6 +29,25 @@ function getInfo() {
             ]
         }
     ]).then((answers) => {
+        if(answers.logoChar.length > 3 || answers.logoChar.length < 3) {
+            console.log('Please input exactly three letters')
+            getInfo()
+        }
+        let isColor = /^[0-9A-F]{6}$/i
+        // ^ - ensures match starts from start of string
+        // [0-9A-F] - checks each char whether they match the provided sets
+        // {6} - checks whether match is 6 characters long
+        // $ - ensures match ends at the end of string
+        // i - allows case insensitivity
+        if(isColor.test(answers.textColor) === false) {
+            console.log('Invalid text color, please enter a valid hexadecimal color without "#"')
+            getInfo()
+        }
+        if(isColor.test(answers.backColor) === false) {
+            console.log('Invalid background color, please enter a valid hexadecimal color without "#"')
+            getInfo()
+        }
+        
         switch (answers.shape) {
             case 'square':
                 let tempSquare = new shape.Square(answers.backColor, answers.textColor, answers.logoChar.toUpperCase())
