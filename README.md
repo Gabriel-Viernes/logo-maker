@@ -47,9 +47,11 @@ THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR I
 
 # Questions
 
-[Github](https://github.com/Gabriel Viernes)
+[Github](https://github.com/Gabriel-Viernes)
+
 [Repo](https://github.com/Gabriel-Viernes/logo-maker)
-[Video](https://watch.screencastify.com/v/UmgxFrOSq6rBZ8jA76rE)
+
+[Video](https://watch.screencastify.com/v/43OagBcQLJZgFvFEPi0U)
 
 Email: email@email.com
 

@@ -36,6 +36,7 @@ function getInfo() {
         // {6} - checks whether match is 6 characters long
         // $ - ensures match ends at the end of string
         // i - allows case insensitivity
+        
         // Checks for invalid logo properties (text length and hexadecimal validity)
         if(answers.logoChar.length > 3 || answers.logoChar.length < 3) {
             console.log('Please input exactly three letters', '\n')
