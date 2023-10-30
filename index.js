@@ -31,9 +31,28 @@ function getInfo() {
     ]).then((answers) => {
         switch (answers.shape) {
             case 'square':
-                let tempSquare = new shape.Square(answers.backColor, answers.textColor, answers.logoChar)
-                console.log(tempSquare)
-                console.log(tempSquare.render())
+                let tempSquare = new shape.Square(answers.backColor, answers.textColor, answers.logoChar.toUpperCase())
+                fs.writeFileSync('./examples/example.svg', tempSquare.render(), (err) => {
+                    if(err) {
+                        console.debug(err)
+                    }
+                } )
+                break;
+            case 'triangle':
+                let tempTri = new shape.Triangle(answers.backColor, answers.textColor,answers.logoChar.toUpperCase())
+                fs.writeFile('./examples/example.svg', tempTri.render(), (err) => {
+                    if(err) {
+                        console.debug(err)
+                    }
+                })
+                break;
+            case 'circle':
+                let tempCir = new shape.Circle(answers.backColor, answers.textColor, answers.logoChar.toUpperCase())
+                fs.writeFile('./examples/example.svg', tempCir.render(), (err) => {
+                    if(err) {
+                        console.debug(err)
+                    }
+                })
                 break;
         }
     })
