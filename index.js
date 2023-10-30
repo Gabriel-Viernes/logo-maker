@@ -32,27 +32,30 @@ function getInfo() {
         switch (answers.shape) {
             case 'square':
                 let tempSquare = new shape.Square(answers.backColor, answers.textColor, answers.logoChar.toUpperCase())
-                fs.writeFileSync('./examples/example.svg', tempSquare.render(), (err) => {
+                fs.writeFileSync('./examples/logo.svg', tempSquare.render(), (err) => {
                     if(err) {
                         console.debug(err)
                     }
-                } )
+                })
+                console.log('Generated logo.svg')
                 break;
             case 'triangle':
                 let tempTri = new shape.Triangle(answers.backColor, answers.textColor,answers.logoChar.toUpperCase())
-                fs.writeFile('./examples/example.svg', tempTri.render(), (err) => {
+                fs.writeFile('./examples/logo.svg', tempTri.render(), (err) => {
                     if(err) {
                         console.debug(err)
                     }
                 })
+                console.log('Generated logo.svg')
                 break;
             case 'circle':
                 let tempCir = new shape.Circle(answers.backColor, answers.textColor, answers.logoChar.toUpperCase())
-                fs.writeFile('./examples/example.svg', tempCir.render(), (err) => {
+                fs.writeFile('./examples/logo.svg', tempCir.render(), (err) => {
                     if(err) {
                         console.debug(err)
                     }
                 })
+                console.log('Generated logo.svg')
                 break;
         }
     })
